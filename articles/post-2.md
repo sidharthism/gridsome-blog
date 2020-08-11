@@ -1,7 +1,7 @@
 ---
 title: My First Article
 abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-image: https://source.unsplash.com/random/2
+image: /uploads/loft.jpg
 author: Sid
 date: 2020-01-07T17:43:37.669Z
 ---
