@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="container">
-      <h1>List articles</h1>
+      <h1 class="title">Sid's Gridsome Blog</h1>
       <div v-for="article in $page.articles.edges" :key="article.id" class="article d-flex">
         <div class="article__img"
              :style="{ 'background-image': 'url(' + article.node.image + ')' }"></div>
@@ -48,6 +48,10 @@ export default {
 @media screen and (max-width: 992px) {
   .article {
     display: block;
+    margin: 28px;
+  }
+  .title {
+    margin: 28px;
   }
 }
 .article__title {
