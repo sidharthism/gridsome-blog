@@ -7,8 +7,9 @@
              :style="{ 'background-image': 'url(' + article.node.image + ')' }"></div>
         <div class="article__body">
           <g-link :to="article.node.path" class="article__link"></g-link>
-          <h1 class="article__title">{{article.node.title}}</h1>
-          <p class="article__abstract">{{article.node.abstract}}</p>
+          <h2 class="article__title">{{article.node.title}}</h2>
+          <p class="article__abstract">{{article.node.abstract | shorten}}</p>
+          <p class="article__pub_ttr">{{article.node.date | striptime}} - {{article.node.timetoread}} read</p>
         </div>
       </div>
     </div>
@@ -21,6 +22,8 @@ query {
       node {
         title
         abstract
+        date
+        timetoread
         image
         path
       }
@@ -30,6 +33,17 @@ query {
 </page-query>
 <script>
 export default {
+  filters: {
+    shorten: function(value) {
+      if (value.length > 50) {
+        return value.slice(0, 50) + '...';
+      }
+        return value;
+    },
+    striptime: function(value) {
+      return value.slice(0,value.indexOf('T'));
+    }
+  },
   metaInfo: {
     title: "My blog"
   }
@@ -69,16 +83,23 @@ export default {
 }
 .article__img {
   width: 250px;
-  height: 140px; 
+  height: 170px; 
   background-size: cover;
   background-position: center;
   border-radius: 8px;
   margin-right: 15px;
 }
+
 @media screen and (max-width: 992px) {
   .article__img {
     width: 100%;
     height: 180px;
+  }
+  .article__abstract{
+   min-width: 0;
+  }
+  .article__pub_ttr{
+    font-size: 0.8rem;
   }
 }
 </style>

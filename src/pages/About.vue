@@ -12,3 +12,11 @@ export default {
   }
 }
 </script>
+<style>
+body{
+  text-align: center;
+}
+p{
+  padding: 10px 40px;
+}
+</style>
