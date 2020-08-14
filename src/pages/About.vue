@@ -18,6 +18,5 @@ export default {
 .about{
   text-align: center;
   padding: 10px 40px;
-  min-height: 100vh;
 }
 </style>

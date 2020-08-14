@@ -16,3 +16,4 @@ collections:
         - {label: "Author", name: "author", widget: "string"}
         - {label: "Date", name: "date", widget: "datetime"}
         - {label: "Body", name: "body", widget: "markdown"}
+        - {label: "Estimated time to read (eg: 7 min)", name: "timetoread", widget: "string"}
